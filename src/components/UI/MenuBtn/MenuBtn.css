@@ -1,0 +1,46 @@
+.MenuBtn{
+    background-color: inherit;
+    justify-self: flex-end;
+    margin-right: 20px;
+}
+.MenuBtn a{
+    display: block;
+
+    position: relative;
+}
+.MenuBtn a span,
+.MenuBtn a span::before,
+.MenuBtn a span::after
+{
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+.MenuBtn a span::before{
+    content: '';
+    transition: 0.2s;
+    transform: translateY(-7px);
+}
+.MenuBtn a span::after{
+    content: '';
+    transition: 0.5s;
+    transform: translateY(5px);
+}
+.MenuBtn .active span::before{
+    transform: rotate(45deg);
+
+}
+.MenuBtn .active span::after{
+    transform: rotate(-45deg);
+
+}
+.MenuBtn .active span{
+    height: 0;
+}
+.MenuBtn .active{
+    transform: translateX(20px);
+}
+
+

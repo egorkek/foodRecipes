@@ -1,0 +1,44 @@
+@keyframes animatedBackground {
+0% {
+    background-position: 0 0
+}
+100% {
+    background-position: -600px 600px /* анимируем свойство background-position */
+}
+}
+
+.Header{
+    background: url("../../images/output.svg") 1px 1px;
+    box-shadow: 5px 5px 5px 5px rgba(46, 49, 49, .7);
+    display: grid;
+    grid-template-columns: 1px 1fr;
+    align-items: center;
+    padding: 5px 10px;
+    color: white;
+    animation: animatedBackground 60s linear infinite;
+    margin-bottom: 10px;
+    min-height: 63px;
+    z-index: 2;
+}
+
+.Header:hover{
+    background-position: center center;
+}
+.Header h1{
+    margin: 0;
+    padding: 0;
+}
+.Header ul{
+    list-style: none;
+    justify-self: end;
+    margin: 0;
+    padding: 0;
+}
+.Header li{
+    display: inline-block;
+    margin-left: 10px;
+}
+.Header .desktop{
+    text-align: center;
+}
+

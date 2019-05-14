@@ -1,0 +1,40 @@
+.Recipe{
+    padding-left: 10px;
+    height: 190px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    transition: background-color 1s;
+    border-radius: 10px;
+}
+.Recipe:hover{
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.Recipe img{
+    height: content-box;
+    object-fit: cover;
+    width: 30%;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.Recipe section{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.Recipe span{
+    color: #7fff00;
+    font-size: 12px;
+}
+
+.Recipe h1{
+    font-size: 20px;
+    padding-top: 5px;
+    margin: 0;
+}
+@media (max-width: 375px ) {
+    .Recipe img{
+    }
+}

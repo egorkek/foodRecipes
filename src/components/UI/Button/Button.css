@@ -1,0 +1,21 @@
+.Button{
+    align-self: center;
+    margin: 10px 0px;
+}
+.Button button{
+    padding: 10px 20px;
+    background: none;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 15px;
+    outline: none;
+    transition: background-color 1s;
+
+
+}
+.Button button:focus{
+    outline: none;
+}
+.Button button:hover{
+    background-color: rgba(0, 0, 0, .2);
+
+}

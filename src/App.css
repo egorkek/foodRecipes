@@ -1,3 +1,16 @@
 .App{
-    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-height: 100vh;
+    background-color: white;
+    align-self: center;
+    width: 100%;
+}
+@media (min-width: 900px) {
+    .App{
+        width: 80vw;
+    }
+
 }

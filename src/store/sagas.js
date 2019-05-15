@@ -6,15 +6,16 @@ export function* Watcher() {
     yield takeEvery(GET_RECIPES, fetchRecipes)
 
 }
-const getProject = (state) => state.currentPage
+const getPage = (state) => state.currentPage
 export function* fetchRecipes(info) {
-   yield put(getRecipesStart());
-   const x = yield select(getProject)
-    console.log(x)
+    const currentPage = yield select(getPage)
+
+    yield put(getRecipesStart());
 
    const data = yield call(()=>{
-       return fetch(`https://api.edamam.com/search?q=popular&app_id=${info.appid}&app_key=${info.apikey}`)
-           .then(res=>res.json())
+       return fetch(`https://api.edamam.com/search?q=popular&from=${currentPage}&app_id=${info.appid}&app_key=${info.apikey}`)
+           .then(res=> res.json())
+           .then(res=>res.hits)
     });
 
     console.log(data)

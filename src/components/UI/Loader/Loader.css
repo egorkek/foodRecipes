@@ -5,6 +5,8 @@
     width: 64px;
     height: 64px;
     align-self: center;
+}
+.Main{
     margin-top: 200px;
 }
 .Loader div {

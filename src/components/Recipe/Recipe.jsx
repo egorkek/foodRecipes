@@ -14,14 +14,15 @@ const Recipe = props=>{
                     })}
                 </div>
                 <h1>{props.label}</h1>
+                <p>Source: {props.source}</p>
+                <div className={classes.Info}>
+                    <p>Ingridients: {props.ingredients.length}</p>
+                    <p>Calories: {Math.round(props.calories)}</p>
+                    <p>Total weight: {Math.round(props.totalWeight)}</p>
+                    <p>{props.totalTime === 0 ? null : (<span>Total time: {props.totalTime} min </span>)}</p>
+
+                </div>
             </section>
-            {/*<div>*/}
-            {/*    <span>{props.totalTime}</span>*/}
-            {/*    <span>{props.totalWeight}</span>*/}
-            {/*</div>*/}
-
-
-
         </div>
     )
 }

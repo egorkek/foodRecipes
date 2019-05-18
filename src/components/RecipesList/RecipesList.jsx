@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import Recipe from "../Recipe/Recipe";
 import Button from "../UI/Button/Button";
 import {getRecipes} from '../../store/actions'
-import {API_KEY, APP_ID} from '../../App'
+import {API_KEY, APP_ID} from '../../store/actionTypes'
 import {Loader} from "../components";
 
 const RecipesList = props=>{
@@ -33,7 +33,8 @@ const RecipesList = props=>{
                                     source={el.recipe.source}
                                     ingredients={el.recipe.ingredients}
                                     calories={el.recipe.calories}
-                                    key={el.recipe.label}
+                                    yield={el.recipe.yield}
+                                    key={el.recipe.uri}
                                 />
                             )
                         })

@@ -1,11 +1,13 @@
 import React, {useState, useEffect, Fragment} from 'react'
 import classes from './Header.css'
 import {Input, MenuBtn} from "../components";
+import {connect} from 'react-redux'
+import {changeType} from '../../store/actions'
 
 const Header = props =>{
     const [inpValue, setInp] = useState('');
     const [active, setActive] = useState(false);
-    const [val, setSize] = useState('');;
+    const [val, setSize] = useState('');
     useEffect(()=>{
         if (window.innerWidth < 550){
             setSize('mobile')
@@ -14,6 +16,13 @@ const Header = props =>{
     })
     function clicked() {
         active === true ? setActive(false) : setActive(true)
+    }
+    function onSearchHandler(){
+        props.changeType(inpValue)
+        setInp('')
+    }
+    function onChangeInputHandler(e){
+        setInp(e.target.value)
     }
     return(
         <div className={classes.Header}>
@@ -27,7 +36,7 @@ const Header = props =>{
                     {active ===true ?
                     <ul className={classes[val]}>
                         <li>
-                            <Input value={inpValue} onChange={(e) => setInp(e.target.value)}/>
+                            <Input value={inpValue} onSearch={()=>onSearchHandler()} onChange={(e)=>onChangeInputHandler(e)}/>
                         </li>
                         <li><i className="fas fa-user-alt"/>
                         </li>
@@ -37,7 +46,7 @@ const Header = props =>{
                 :
                 <ul className={classes[val]}>
                     <li>
-                        <Input value={inpValue} onChange={(e) => setInp(e.target.value)}/>
+                        <Input value={inpValue} onSearch={()=>onSearchHandler()} onChange={(e)=>onChangeInputHandler(e)}/>
                     </li>
                     <li>My recipes</li>
                     <li>All recipes</li>
@@ -50,4 +59,12 @@ const Header = props =>{
         </div>
     )
 }
-export default Header
+
+function mapDispatchToProps(dispatch) {
+    return{
+        changeType: (newType)=>dispatch(changeType(newType)),
+    }
+
+}
+
+export default connect(null,mapDispatchToProps)(Header)

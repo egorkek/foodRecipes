@@ -9,9 +9,8 @@
     border-radius: 15px;
     outline: none;
     transition: background-color 1s;
-
-
 }
+
 .Button button:focus{
     outline: none;
 }

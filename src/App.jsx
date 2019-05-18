@@ -1,13 +1,10 @@
 import React from 'react'
 import classes from './App.css'
 import {connect} from 'react-redux'
-import {Header, Layout, Loader} from './components/components'
+import {Header, Layout} from './components/components'
 import {getRecipes} from "./store/actions";
 import RecipesList from "./components/RecipesList/RecipesList";
-export const APP_ID = '129401a1';
-export const API_KEY='0e32cfd7e1f81e84eab471ae5deb3237';
-
-
+import {APP_ID, API_KEY} from './store/actionTypes'
 class App extends React.Component{
     componentDidMount(){
         this.props.getRecipes(APP_ID, API_KEY)
@@ -17,6 +14,7 @@ class App extends React.Component{
             <Layout>
                 <Header/>
                 <div className={classes.App}>
+                    <h1 className={classes.Head}> "{this.props.state.recipeType}"</h1>
                      <RecipesList/>
                 </div>
             </Layout>

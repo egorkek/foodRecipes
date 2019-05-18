@@ -8,6 +8,13 @@
     align-self: center;
     width: 100%;
 }
+.App .Head{
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 10px;
+    margin-top: 0px;
+
+}
 @media (min-width: 900px) {
     .App{
         width: 80vw;

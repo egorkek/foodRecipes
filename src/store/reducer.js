@@ -1,10 +1,11 @@
-import {GET_RECIPES_START, GET_RECIPES_SUCCESS} from "./actionTypes";
+import {GET_RECIPES_START, GET_RECIPES_SUCCESS, CHANGE_TYPE} from "./actionTypes";
 
 const initialState = {
     recipes:[],
     currentPage: 0,
     isLogged: false,
-    loading: true
+    loading: true,
+    recipeType: 'Popular'
 };
 
 export default function reducer(state= initialState, action) {
@@ -20,6 +21,13 @@ export default function reducer(state= initialState, action) {
             return {
                 ...state,
                 loading: true
+            }
+        case CHANGE_TYPE:
+            return {
+                ...state,
+                recipes: [],
+                recipeType: action.payload,
+                currentPage:0
             }
         default:
             return state
